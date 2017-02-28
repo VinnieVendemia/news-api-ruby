@@ -1,19 +1,18 @@
 
 
 module NewsApi
+  # A BaseRequest is used to make simple requests to the newsapi.org service.
+  # This class only cares about making the request, and whether it was
+  # successful or not. For more complex parsing of responses, extend this class
   class BaseRequest
     class << self
-
-      BASE_REQUEST_URL = 'https://newsapi.org/v1'
-      SUCCESS 		 = 200
+      BASE_REQUEST_URL = 'https://newsapi.org/v1'.freeze
+      SUCCESS = 200
 
       def get endpoint
         response = Faraday.get "#{BASE_REQUEST_URL}/#{endpoint}"
-        if is_success?(response)
-          parse response.body
-        else
-          raise failed_request response
-        end
+        raise failed_request(response) unless success?(response)
+        parse response.body
       end
 
       private
@@ -22,7 +21,7 @@ module NewsApi
         JSON.parse response
       end
 
-      def is_success? response
+      def success? response
         response.status == SUCCESS
       end
 
@@ -30,7 +29,6 @@ module NewsApi
         msg = "#{response.status}: #{response.reason_phrase}"
         NewsApi::Exceptions::FailedRequest.new msg
       end
-
     end
   end
 end
