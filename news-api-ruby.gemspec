@@ -9,8 +9,8 @@ Gem::Specification.new do |spec|
   spec.version = NewsApi::VERSION
   spec.authors = ['Vinnie Vendemia']
   spec.email = ['vvendemia1@gmail.com']
-  spec.summary = "Wrapper for hitting the newsapi.org API"
-  spec.description = "Wrapper for hitting the newsapi.org API"
+  spec.summary = 'Wrapper for hitting the newsapi.org API'
+  spec.description = 'Wrapper for hitting the newsapi.org API'
   spec.homepage = ''
   spec.license = 'MIT'
 
