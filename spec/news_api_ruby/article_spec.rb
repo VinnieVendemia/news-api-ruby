@@ -2,7 +2,6 @@ require 'news_api_ruby'
 
 # Tests for the Article class
 describe NewsApi::Article do
-
   before(:context) do
     @test_article_data = {
       author: 'Test Author',
@@ -15,7 +14,6 @@ describe NewsApi::Article do
   end
 
   context '#article_request' do
-
     it 'should be possible to initialize an Article' do
       a = NewsApi::Article.new(@test_article_data)
       expect(a).to be_truthy
@@ -52,9 +50,8 @@ describe NewsApi::Article do
     end
 
     context 'Testing live API calls', missing_api_key: ENV['API_KEY'].nil? do
-
       let(:source) do
-        s = NewsApi::Source.new(id: 'abc-news-au')
+        NewsApi::Source.new(id: 'abc-news-au')
       end
 
       it 'should be possible to request an article by id' do

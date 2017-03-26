@@ -2,11 +2,9 @@ require 'news_api_ruby'
 
 # Tests for Exceptions
 describe NewsApi::Exceptions do
-
   context '#initialize' do
-
     let(:msg) do
-      "400: Bad Request"
+      '400: Bad Request'
     end
 
     it 'should be possible to initialize a FailedRequest' do

@@ -16,19 +16,22 @@ describe NewsApi::BaseRequest do
   end
 
   context '#private_methods' do
-
     let(:positive_response) do
-      Faraday::Response.new(status: 200,
-                            body: "{\"test\":\"String\"}",
-                            reason_phrase: "Success"
-                            )
+      param = {
+        status: 200,
+        body: '{\"test\":\"String\"}',
+        reason_phrase: 'Success'
+      }
+      Faraday::Response.new(param)
     end
 
     let(:failure_response) do
-      Faraday::Response.new(status: 400,
-                            body: "{\"bad\":\"Request\"}",
-                            reason_phrase: "Bad Request"
-                            )
+      param = {
+        status: 400,
+        body: '{\"bad\":\"Request\"}',
+        reason_phrase: 'Bad Request'
+      }
+      Faraday::Response.new(param)
     end
 
     it 'should properly parse' do
@@ -46,9 +49,9 @@ describe NewsApi::BaseRequest do
       expect(response).to be false
     end
 
-    it 'should generate a failed request' do 
+    it 'should generate a failed request' do
       error = NewsApi::BaseRequest.send(:failed_request, failure_response)
-      expect(error.message).to eq("400: Bad Request")
+      expect(error.message).to eq('400: Bad Request')
     end
   end
 end
