@@ -19,13 +19,13 @@ module NewsApi
       def get endpoint
         response = Faraday.get "#{BASE_REQUEST_URL}/#{endpoint}"
         raise failed_request(response) unless success?(response)
-        parse response.body
+        parse response
       end
 
       private
 
       def parse response
-        JSON.parse response
+        JSON.parse response.body
       end
 
       def success? response
