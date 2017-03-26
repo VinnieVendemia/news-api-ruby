@@ -58,7 +58,20 @@ article.description # => 'John writes a pretty cool ruby gem'
 
 ## Tests
 
-> TODO
+This gem uses rspec for testing.  To run the unit tests: 
+
+```
+$ bundle exec rspec
+```
+
+There are also a few tests that can be run that make live requests to the API.  To run these tests, include your 
+api key: 
+
+```
+$ API_KEY=YOUR_API_KEY bundle exec rspec
+```
+
+Please ensure ALL tests are passing before submitting a PR
 
 ## Contributing 
 
