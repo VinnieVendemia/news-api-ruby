@@ -1,2 +1,12 @@
+AllCops:
+  Exclude:
+    - 'spec/spec_helper.rb'
+
 Style/MethodDefParentheses:
   Enabled: false
+
+Style/BlockLength:
+  Exclude:
+    - 'Rakefile'
+    - '**/*.rake'
+    - 'spec/**/*.rb'
