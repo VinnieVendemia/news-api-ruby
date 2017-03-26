@@ -19,7 +19,7 @@ describe NewsApi::BaseRequest do
     let(:positive_response) do
       param = {
         status: 200,
-        body: '{\"test\":\"String\"}',
+        body: JSON.generate(test: 'String'),
         reason_phrase: 'Success'
       }
       Faraday::Response.new(param)
@@ -28,7 +28,7 @@ describe NewsApi::BaseRequest do
     let(:failure_response) do
       param = {
         status: 400,
-        body: '{\"bad\":\"Request\"}',
+        body: JSON.generate(bad: 'Request'),
         reason_phrase: 'Bad Request'
       }
       Faraday::Response.new(param)
