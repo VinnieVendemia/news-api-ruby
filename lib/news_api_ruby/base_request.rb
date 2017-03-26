@@ -5,7 +5,6 @@ module NewsApi
   # This class only cares about making the request, and whether it was
   # successful or not. For more complex parsing of responses, extend this class
   class BaseRequest
-
     def initialize response_obj
       response_obj.each do |k, v|
         instance_variable_set("@#{k}", v)
