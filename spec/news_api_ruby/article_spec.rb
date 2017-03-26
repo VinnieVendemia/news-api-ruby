@@ -1,4 +1,4 @@
-require '/Users/Vinnie/Ruby/news_api_ruby/lib/news_api_ruby.rb'
+require 'news_api_ruby'
 
 # Tests for the Article class
 describe NewsApi::Article do
