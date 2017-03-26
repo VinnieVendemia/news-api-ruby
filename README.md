@@ -38,7 +38,23 @@ source.description # => The AP delivers in-depth coverage on the international, 
 source.id # => 'associated-press'
 ```
 ### Article
-> TODO
+
+NOTE: In order to query for an Article, you must first obtain an api key from [newsapi.org](https://newsapi.org/).
+
+Initialize your key as an environment variable
+
+```ruby
+ENV['API_KEY'] = 'YOUR_KEY'
+```
+
+Then, utilize a source to query for all articles for that given source 
+
+```ruby
+articles  = NewsApi::Article.all s.first
+article   = articles.first
+article.author # => 'John Doe'
+article.description # => 'John writes a pretty cool ruby gem'
+```
 
 ## Tests
 
