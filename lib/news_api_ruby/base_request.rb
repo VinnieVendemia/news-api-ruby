@@ -5,6 +5,14 @@ module NewsApi
   # This class only cares about making the request, and whether it was
   # successful or not. For more complex parsing of responses, extend this class
   class BaseRequest
+
+    def initialize response_obj
+      response_obj.each do |k, v|
+        instance_variable_set("@#{k}", v)
+        singleton_class.class_eval { attr_reader k }
+      end
+    end
+
     class << self
       BASE_REQUEST_URL = 'https://newsapi.org/v1'.freeze
       SUCCESS = 200
